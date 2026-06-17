@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop Wasting Time — The Complete Habit Operating System</title>
+<meta name="description" content="42+ feature habit tracker with AI coaching, goal ladder, streak shields, and identity-based tracking. Build habits that stick.">
+<meta property="og:title" content="Stop Wasting Time - Build Habits That Actually Stick">
+<meta property="og:description" content="42+ features. AI coaching. Goal ladder. Streak shields. Works offline. No app install needed.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--black:#080808;--black2:#111;--black3:#1a1a1a;--black4:#242424;--black5:#2e2e2e;--gold:#C9A84C;--gold-lt:#E8C97A;--gold-dk:#9A7830;--gold-dim:#6B5520;--off-white:#F5F0E8;--gray:#888;--gray-lt:#BBB;--green:#2ECC71;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--off-white);font-family:'Inter',sans-serif;line-height:1.6;}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1.5rem;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.12) 0%,transparent 65%);text-align:center;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;margin-bottom:1.5rem;}
+.title{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:900;line-height:.95;background:linear-gradient(135deg,var(--gold-lt) 0%,var(--gold) 50%,var(--gold-dk) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;}
+.subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--gray-lt);max-width:520px;margin-bottom:2.5rem;}
+.divider{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 2.5rem;}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gold-dim);border:1px solid var(--gold-dim);border-radius:8px;overflow:hidden;max-width:460px;width:100%;margin-bottom:2.5rem;}
+.stat{background:var(--black3);padding:1.3rem;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700;display:block;}
+.stat-label{font-size:.62rem;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;}
+.cta-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem;}
+.btn-gold{background:linear-gradient(135deg,var(--gold-dk),var(--gold));color:var(--black);border:none;padding:14px 32px;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .2s;text-decoration:none;display:inline-block;}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35);}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold-dim);padding:14px 32px;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .2s;text-decoration:none;display:inline-block;}
+.btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
+
+/* SECTIONS */
+.section{max-width:900px;margin:0 auto;padding:4rem 1.5rem;}
+.section-badge{background:var(--gold);color:var(--black);font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;letter-spacing:.1em;padding:3px 10px;border-radius:2px;text-transform:uppercase;display:inline-block;margin-bottom:1rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--off-white);margin-bottom:.8rem;}
+.section-sub{font-size:.9rem;color:var(--gray);max-width:600px;margin-bottom:2rem;line-height:1.7;}
+
+/* PROBLEM */
+.problem{background:var(--black2);border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);padding:4rem 1.5rem;}
+.problem-inner{max-width:700px;margin:0 auto;text-align:center;}
+.problem-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--off-white);margin-bottom:1rem;}
+.problem-text{font-size:.9rem;color:var(--gray-lt);line-height:1.8;margin-bottom:1.5rem;}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2rem;}
+.feature-card{background:var(--black3);border:1px solid var(--black5);border-radius:6px;padding:1.3rem;transition:border-color .2s;}
+.feature-card:hover{border-color:var(--gold-dim);}
+.feature-icon{font-size:1.8rem;margin-bottom:.7rem;display:block;}
+.feature-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--off-white);margin-bottom:.3rem;}
+.feature-desc{font-size:.74rem;color:var(--gray);line-height:1.5;}
+
+/* PRICING */
+.pricing{background:var(--black2);border-top:1px solid var(--gold-dim);}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:900px;margin:0 auto;}
+.price-card{background:var(--black3);border:1px solid var(--black5);border-radius:8px;padding:2rem 1.5rem;text-align:center;transition:all .2s;}
+.price-card.featured{border-color:var(--gold);background:linear-gradient(135deg,var(--black3),rgba(201,168,76,.06));transform:scale(1.03);}
+.price-tier{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;}
+.price-amount{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--off-white);line-height:1;}
+.price-period{font-size:.7rem;color:var(--gray);margin-bottom:1.2rem;}
+.price-features{list-style:none;text-align:left;margin-bottom:1.5rem;}
+.price-features li{font-size:.78rem;color:var(--gray-lt);padding:.4rem 0;border-bottom:1px solid var(--black5);display:flex;align-items:center;gap:.5rem;}
+.price-features li::before{content:'\2713';color:var(--gold);font-weight:700;font-size:.7rem;}
+
+/* TESTIMONIALS placeholder */
+.trust-bar{text-align:center;padding:2rem 1.5rem;border-top:1px solid var(--black5);}
+.trust-text{font-size:.75rem;color:var(--gray);font-family:'JetBrains Mono',monospace;letter-spacing:.08em;}
+
+/* FAQ */
+.faq-item{background:var(--black3);border:1px solid var(--black5);border-radius:6px;padding:1.2rem 1.5rem;margin-bottom:.8rem;}
+.faq-q{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--off-white);margin-bottom:.4rem;}
+.faq-a{font-size:.8rem;color:var(--gray-lt);line-height:1.6;}
+
+/* FOOTER */
+.footer{text-align:center;padding:2rem 1.5rem;border-top:1px solid var(--gold-dim);}
+.footer-text{font-size:.65rem;color:var(--gray);font-family:'JetBrains Mono',monospace;}
+
+@media(max-width:700px){
+  .features-grid,.pricing-grid{grid-template-columns:1fr;}
+  .price-card.featured{transform:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">Habit Operating System</div>
+  <div class="title">STOP<br>WASTING<br>TIME</div>
+  <div class="subtitle">Build habits that stick. Track what matters. Become who you want to be.</div>
+  <div class="divider"></div>
+  <div class="stats">
+    <div class="stat"><span class="stat-num">42+</span><span class="stat-label">Built-in Features</span></div>
+    <div class="stat"><span class="stat-num">20</span><span class="stat-label">Daily Habit Slots</span></div>
+    <div class="stat"><span class="stat-num">30</span><span class="stat-label">Month Roadmap</span></div>
+  </div>
+  <div class="cta-row">
+    <a href="#pricing" class="btn-gold">Get the System &rarr;</a>
+    <a href="/demo" class="btn-outline">Try Free Demo</a>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div class="problem">
+  <div class="problem-inner">
+    <div class="problem-title">You&rsquo;ve tried habit tracking before.</div>
+    <div class="problem-text">Notion templates. Productivity apps. Paper journals. They all lasted about 2 weeks. The problem was never the tool &mdash; it was the system behind it. Trackers show you checkboxes. This shows you <strong>why you miss</strong>, <strong>what to fix</strong>, and <strong>who you&rsquo;re becoming</strong>.</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="section">
+  <span class="section-badge">Features</span>
+  <div class="section-title">Not a tracker. A system.</div>
+  <div class="section-sub">Every feature exists to solve a specific habit-building failure. Nothing is decorative.</div>
+  <div class="features-grid">
+    <div class="feature-card"><span class="feature-icon">&#127919;</span><div class="feature-name">Goal Ladder</div><div class="feature-desc">Big Goal &rarr; 90-day &rarr; Monthly &rarr; Weekly commitments. Every habit connects upward.</div></div>
+    <div class="feature-card"><span class="feature-icon">&#129504;</span><div class="feature-name">AI Coaching</div><div class="feature-desc">Diagnose friction, get weekly insights, audit your identity statement &mdash; powered by real AI.</div></div>
+    <div class="feature-card"><span class="feature-icon">&#128293;</span><div class="feature-name">Streak Shields</div><div class="feature-desc">1 free miss per week. Protects your streak without pretending you&rsquo;re perfect.</div></div>
+    <div class="feature-card"><span class="feature-icon">&#9889;</span><div class="feature-name">Focus Mode</div><div class="feature-desc">Full-screen, one habit at a time. Built-in Pomodoro timer. Zero distractions.</div></div>
+    <div class="feature-card"><span class="feature-icon">&#128256;</span><div class="feature-name">Path Fork</div><div class="feature-desc">10 bad habit categories. Same cue, two responses. Tap the one you chose today.</div></div>
+    <div class="feature-card"><span class="feature-icon">&#128218;</span><div class="feature-name">4 Templates</div><div class="feature-desc">Student, Job Searcher, Fitness, Content Creator &mdash; 20 pre-built habits with cues and rewards.</div></div>
+    <div class="feature-card"><span class="feature-icon">&#128200;</span><div class="feature-name">Pattern Insights</div><div class="feature-desc">Best day, worst day, sleep vs habits, energy correlations. Your data tells you what to fix.</div></div>
+    <div class="feature-card"><span class="feature-icon">&#127942;</span><div class="feature-name">Achievements</div><div class="feature-desc">12 milestone badges. First step, 7-day streak, perfect day, 30-day champion. Permanent record.</div></div>
+    <div class="feature-card"><span class="feature-icon">&#128736;</span><div class="feature-name">Habit Design</div><div class="feature-desc">Cue, reward, 2-min version, temptation bundle, environment design &mdash; per habit.</div></div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="pricing" id="pricing">
+  <div class="section" style="padding-bottom:3rem;">
+    <span class="section-badge">Pricing</span>
+    <div class="section-title">One payment. Lifetime access.</div>
+    <div class="section-sub">No subscription. No account needed. Works offline in any browser. Your data stays on your device.</div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$9</div>
+        <div class="price-period">one-time</div>
+        <ul class="price-features">
+          <li>Interactive Habit Tracker App</li>
+          <li>10-page printable PDF template</li>
+          <li>Works offline, any browser</li>
+          <li>All 42+ features included</li>
+        </ul>
+        <a href="https://YOUR_GUMROAD_LINK" class="btn-gold" style="width:100%;text-align:center;">Get Starter</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">Standard &mdash; Most Popular</div>
+        <div class="price-amount">$19</div>
+        <div class="price-period">one-time</div>
+        <ul class="price-features">
+          <li>Everything in Starter</li>
+          <li>40-page Strategy Ebook</li>
+          <li>Excel Habit Tracker (6 sheets)</li>
+          <li>Habit Design Worksheets</li>
+          <li>Free future updates</li>
+        </ul>
+        <a href="https://YOUR_GUMROAD_LINK" class="btn-gold" style="width:100%;text-align:center;">Get Standard &rarr;</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-amount">$29</div>
+        <div class="price-period">one-time</div>
+        <ul class="price-features">
+          <li>Everything in Standard</li>
+          <li>30-day coaching email sequence</li>
+          <li>Priority feature requests</li>
+          <li>Lifetime updates guaranteed</li>
+        </ul>
+        <a href="https://YOUR_GUMROAD_LINK" class="btn-gold" style="width:100%;text-align:center;">Get Premium</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <span class="section-badge">FAQ</span>
+  <div class="section-title">Questions</div>
+  <div class="faq-item"><div class="faq-q">Does it require an internet connection?</div><div class="faq-a">No. The app is a single HTML file that runs entirely in your browser. Your data is saved locally. No account, no server, no tracking.</div></div>
+  <div class="faq-item"><div class="faq-q">What browser does it work in?</div><div class="faq-a">Chrome, Firefox, Safari, Edge &mdash; any modern browser on desktop or mobile.</div></div>
+  <div class="faq-item"><div class="faq-q">Is this a subscription?</div><div class="faq-a">No. One-time payment. You own it forever. Updates are free for Standard and Premium tiers.</div></div>
+  <div class="faq-item"><div class="faq-q">Can I lose my data?</div><div class="faq-a">Your data lives in your browser&rsquo;s localStorage. The app has a built-in JSON export/import feature for backups. Export regularly.</div></div>
+  <div class="faq-item"><div class="faq-q">How is this different from Notion or Habitica?</div><div class="faq-a">Those are trackers. This is a system. It has cue-routine-reward mapping, identity-based goal ladders, AI coaching, path fork decisions for bad habits, streak shields, and 30+ more features specifically designed around behaviour change science &mdash; not just checkboxes.</div></div>
+</div>
+
+<!-- FINAL CTA -->
+<div style="text-align:center;padding:4rem 1.5rem;background:radial-gradient(ellipse at 50% 100%,rgba(201,168,76,.08) 0%,transparent 65%);">
+  <div style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;color:var(--off-white);margin-bottom:.8rem;">Stop planning. Start building.</div>
+  <div style="font-size:.9rem;color:var(--gray);margin-bottom:2rem;">Your next 30 months start with one click.</div>
+  <a href="#pricing" class="btn-gold">Get the System &rarr;</a>
+</div>
+
+<div class="footer">
+  <div class="footer-text">Stop Wasting Time &copy; 2026 &mdash; Habit Operating System</div>
+</div>
+
+</body>
+</html>

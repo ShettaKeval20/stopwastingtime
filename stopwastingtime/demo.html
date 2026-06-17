@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="viewport content="width=device-width, initial-scale=1.0">
-<title>Stop Wasting Time — The Complete Habit Operating System | Build Habits That Stick</title>
+<title>Stop Wasting Time — FREE DEMO | Habit Operating System</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
@@ -731,6 +731,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,.96);b
 .block-config-toggle:hover{border-color:var(--gold-dim);color:var(--gold);}
 @media(max-width:600px){.tpl-grid{grid-template-columns:1fr;}}
 
+
+.upgrade-banner{position:fixed;bottom:46px;left:0;right:0;background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.08));border-top:1px solid var(--gold);padding:10px 1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem;z-index:100;backdrop-filter:blur(8px);}
+.upgrade-text{font-size:.78rem;color:var(--gold-lt);font-weight:500;}
+.upgrade-btn{background:linear-gradient(135deg,var(--gold-dk),var(--gold));color:var(--black);border:none;padding:8px 20px;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:3px;text-decoration:none;transition:all .2s;}
+.upgrade-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(201,168,76,.3);}
+
 </style>
 </head>
 <body>
@@ -1097,8 +1103,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,.96);b
     <div class="habit-book">
       <div class="time-block"><div class="time-block-header"><span class="time-icon">&#127749;</span><div><div class="time-label">Morning</div><div class="time-sub">5:00 AM &#8212; 12:00 PM</div></div></div><div class="time-block-body" id="morning-habits"></div></div>
       <div class="time-block"><div class="time-block-header"><span class="time-icon">&#9728;&#65039;</span><div><div class="time-label">Afternoon</div><div class="time-sub">12:00 PM &#8212; 5:00 PM</div></div></div><div class="time-block-body" id="afternoon-habits"></div></div>
-      <div class="time-block"><div class="time-block-header"><span class="time-icon">&#127750;</span><div><div class="time-label">Evening</div><div class="time-sub">5:00 PM &#8212; 9:00 PM</div></div></div><div class="time-block-body" id="evening-habits"></div></div>
-      <div class="time-block"><div class="time-block-header"><span class="time-icon">&#127769;</span><div><div class="time-label">Night</div><div class="time-sub">9:00 PM &#8212; 12:00 AM</div></div></div><div class="time-block-body" id="night-habits"></div></div>
+      <div class="time-block"><div class="time-block-header"><span class="time-icon">&#127750;</span><div><div class="time-label">Evening</div><div class="time-sub">5:00 PM &#8212; 9:00 PM</div></div></div><div class="time-block-body" id="evening-habits" style="opacity:.3;pointer-events:none;"><div style="text-align:center;padding:1rem;font-size:.72rem;color:var(--gold-dk);">Unlock in full version</div></div></div>
+      <div class="time-block"><div class="time-block-header"><span class="time-icon">&#127769;</span><div><div class="time-label">Night</div><div class="time-sub">9:00 PM &#8212; 12:00 AM</div></div></div><div class="time-block-body" id="night-habits" style="opacity:.3;pointer-events:none;"><div style="text-align:center;padding:1rem;font-size:.72rem;color:var(--gold-dk);">Unlock in full version</div></div></div>
     </div>
     <div class="archive-section" id="archive-section" style="display:none;"><div class="archive-title"><span>Archived Habits</span><span style="font-size:.62rem;color:var(--gray);">Inactive &#8212; historical data preserved</span></div><div class="archive-list" id="archive-list"></div></div>
     <div class="score-cards">
@@ -1329,6 +1335,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,.96);b
     <div class="rule-box">Never miss twice. One miss is an accident. Two is a new bad habit starting.</div>
     <div class="print-note">All charts reflect real data &#183; Export JSON to back up &#183; Ctrl+P to export PDF</div>
   </div>
+</div>
+
+
+<div class="upgrade-banner">
+  <span class="upgrade-text">&#9889; Free Demo &#8212; 2 time blocks, limited features. Unlock all 42+ features with the full version.</span>
+  <a href="https://YOUR_GUMROAD_LINK" class="upgrade-btn" target="_blank">Upgrade Now &#8594;</a>
 </div>
 
 <!-- SAVE BAR -->
@@ -1577,7 +1589,7 @@ const STARTER_HABITS = [
 ];
 
 // ── STORAGE ───────────────────────────────────────────────────────────────
-const KEY = 'swt_v4';
+const KEY = 'swt_demo';
 function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { return {}; } }
 function save(patch) {
   const d = Object.assign(load(), patch);
